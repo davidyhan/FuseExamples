@@ -11,7 +11,7 @@ public interface TransactionService {
 
   @WebMethod(operationName = "Transaction")
   @WebResult(name = "TransactionResponse")
-  TransactionRequestModel transaction(
-    @WebParam(name = "TransactionRequest") TransactionResponseModel transactoinResponse);
+  TransactionResponseModel transaction(
+    @WebParam(name = "TransactionRequest") TransactionRequestModel transactoinResponse);
 
 }
