@@ -13,7 +13,7 @@
   </cm:property-placeholder>
 
   <cxf:cxfEndpoint id="transactionEndpoint" address="/transaction/"
-    serviceClass="com.elavon.fuse.examples.cxf_to_amq.TransactionService">
+    serviceClass="dhan.fuse.examples.cxf_to_amq.TransactionService">
     <cxf:properties>
       <entry key="dataFormat" value="POJO" />
     </cxf:properties>
@@ -26,7 +26,7 @@
   </bean>
 
   <!-- RouteBuilder bean declarations -->
-  <bean id="cxfRouteBuilder" class="com.elavon.fuse.examples.cxf_to_amq.CxfToAmqRouteBuilder" />
+  <bean id="cxfRouteBuilder" class="dhan.fuse.examples.cxf_to_amq.CxfToAmqRouteBuilder" />
 
   <camelContext id="inbound-transaction-ws" xmlns="http://camel.apache.org/schema/blueprint" trace="true">
     <camel:routeBuilder ref="cxfRouteBuilder" />

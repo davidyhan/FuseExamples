@@ -1,4 +1,4 @@
-package com.elavon.fuse.examples.cxf_to_amq;
+package dhan.fuse.examples.cxf_to_amq;
 
 import java.util.Properties;
 
@@ -9,6 +9,9 @@ import org.apache.camel.impl.DefaultExchange;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.apache.cxf.message.MessageContentsList;
 import org.junit.Test;
+
+import dhan.fuse.examples.cxf_to_amq.CxfToAmqRouteBuilder;
+import dhan.fuse.examples.cxf_to_amq.TransactionRequestModel;
 
 
 public class RouteBuilderTest extends CamelTestSupport {

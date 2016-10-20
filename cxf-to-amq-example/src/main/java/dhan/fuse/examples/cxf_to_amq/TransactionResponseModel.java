@@ -1,4 +1,4 @@
-package com.elavon.fuse.examples.cxf_to_amq;
+package dhan.fuse.examples.cxf_to_amq;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

@@ -1,4 +1,4 @@
-package com.elavon.fuse.examples.cxf_to_amq;
+package dhan.fuse.examples.cxf_to_amq;
 
 import javax.xml.bind.JAXBContext;
 
@@ -22,18 +22,12 @@ public class CxfToAmqRouteBuilder extends RouteBuilder {
       .process(new Processor(){
         @Override
         public void process(Exchange exchange) throws Exception {
-          exchange.getIn().setBody(exchange.getIn().getBody(MessageContentsList.class).get(0));
-        }
-      })
-      .wireTap("direct:wiretap")
-      .process(new Processor(){
-        @Override
-        public void process(Exchange exchange) throws Exception {
           TransactionResponseModel response = new TransactionResponseModel();
           response.setResponse("Success");
           exchange.getIn().setBody(response);
         }
-      });
+      })
+      .wireTap("direct:wiretap");
     //@formatter:on
 
     //@formatter:off
