@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:camel="http://camel.apache.org/schema/blueprint"
+  xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf">
+
+  <!-- The bean to register PID with OSGi Config Admin service and define the default values for the 
+    PID properties -->
+  <cm:property-placeholder persistent-id="dhan.fuse.examples.timer"
+    update-strategy="reload">
+    <cm:default-properties>
+      <!-- LOGGING Properties -->
+      <cm:property name="variable1" value="var1" />
+      <cm:property name="variable2" value="var2" />
+      <cm:property name="variable3" value="var3" />
+    </cm:default-properties>
+  </cm:property-placeholder>
+
+  <bean id="TimeRouteBuilder" class="dhan.fuse.examples.TimerRouteBuilder" />
+  
+  <bean id="Bean" class="dhan.fuse.examples.Bean">
+    <property name="global" ref="GlobalVariables" />
+  </bean>
+
+  <bean id="GlobalVariables" class="dhan.fuse.examples.GlobalVariables">
+    <property name="variable1" value="${variable1}" />
+    <property name="variable2" value="${variable2}" />
+    <property name="variable3" value="${variable3}" />
+  </bean>
+
+  <camelContext id="TimerContext" xmlns="http://camel.apache.org/schema/blueprint"
+    trace="true">
+    <camel:routeBuilder ref="TimeRouteBuilder" />
+  </camelContext>
+
+</blueprint>
